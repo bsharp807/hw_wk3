@@ -21,6 +21,7 @@ class PokeFormView {
         answer = true
       }
       PubSub.publish('PokeFormView:PokeName', answer);
+      this.element.reset();
     })
   }
 

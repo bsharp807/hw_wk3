@@ -22,4 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const pokeGetView = new PokeGetView();
   pokeGetView.bindEvents();
 
+  pokemon.getPokemon();
+
 });
