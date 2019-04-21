@@ -6,6 +6,11 @@ class PokeDisplay {
     this.element = document.querySelector('#poke-display');
   }
 
+  bindEvents() {
+    PubSub.subscribe('Pokemon:one-poke-obj', (evt) => {
+      console.log(evt.detail);
+    })
+  }
 
 
 }

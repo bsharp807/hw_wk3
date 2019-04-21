@@ -14,9 +14,6 @@ class PokeGetView {
     })
   }
 
-  publishPokemonImg(pokemon) {
-    const pokeSprite = pokemon
-  }
 }
 
 module.exports = PokeGetView;

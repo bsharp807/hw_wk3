@@ -5,7 +5,7 @@ const RNG = require('../helpers/rng.js');
 class Pokemon {
 
   constructor() {
-    this.pokemon = [];
+    this.pokemon = null;
     this.arrayNumber = 150;
   }
 
@@ -18,9 +18,18 @@ class Pokemon {
 
   getPokemon() {
     const rng = new RNG(this.arrayNumber);
+    console.log(rng);
     const pokeNumber = rng.rand();
-    const url = `https://pokeapi.co/api/v2/pokemon/${pokeNumber}/`;
-    PubSub.publish('Pokemon:one-poke-url', url);
+    console.log(pokeNumber);
+    const url = `https://pokeapi.co/api/v2/pokemon/${ pokeNumber }/`;
+    console.log(url);
+    const request = new RequestHelper(url);
+    console.log(request);
+    request.get()
+      .then((data) => {
+        this.pokemon = data;
+        PubSub.publish('Pokemon:one-poke-obj', this.pokemon);
+      })
   }
 }
 
