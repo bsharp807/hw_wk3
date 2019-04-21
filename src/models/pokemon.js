@@ -7,6 +7,13 @@ class Pokemon {
   constructor() {
     this.pokemon = null;
     this.arrayNumber = 150;
+    this.firstTime = 0
+  }
+
+  autoRefresh() {
+    PubSub.subscribe('PokeFormView:PokeName', () => {
+        this.getPokemon();
+    })
   }
 
   bindEvents() {
@@ -17,7 +24,7 @@ class Pokemon {
 
   getPokemon() {
     const rng = new RNG(this.arrayNumber);
-    const pokeNumber = rng.rand();
+    const pokeNumber = rng.rand() + 1;
     const url = `https://pokeapi.co/api/v2/pokemon/${ pokeNumber }/`;
     const request = new RequestHelper(url);
     request.get()

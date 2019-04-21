@@ -17,7 +17,8 @@ class PokeFormView {
     this.element.addEventListener('submit', (evt) => {
       evt.preventDefault();
       let answer = false;
-      if(evt.target.pokemon.value === this.pokeName) {
+      const nameGiven = evt.target.pokemon.value.toLowerCase();
+      if(nameGiven === this.pokeName) {
         answer = true
       }
       PubSub.publish('PokeFormView:PokeName', answer);

@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const pokemon = new Pokemon();
   pokemon.bindEvents();
+  pokemon.autoRefresh();
 
   const pokeAnsView = new PokeAnsView();
   pokeAnsView.bindEvents();

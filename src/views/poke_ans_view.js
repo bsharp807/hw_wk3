@@ -4,7 +4,8 @@ class PokeAnsView {
 
   constructor() {
     this.element = document.querySelector('#ans-section')
-    this.totals = document.querySelector('#totals')
+    this.correct = document.querySelector('#correct')
+    this.incorrect = document.querySelector('#incorrect')
     this.totalCorrect = 0
     this.totalWrong = 0
   }
@@ -18,17 +19,32 @@ class PokeAnsView {
   }
 
   updateTotals(name) {
-    if(name) {
-      this.totalCorrect += 1;
-    } else this.totalWrong =+ 1;
-    this.renderTotals();
+    switch(name) {
+      case true:
+        this.totalCorrect += 1;
+        this.renderCorrectTotals();
+        break;
+      case false:
+        this.totalWrong += 1;
+        this.renderIncorrectTotals();
+        break;
+      default:
+        console.log('how did it get here!?');
+    }
   }
 
-  renderTotals() {
-    this.totals.innerHTML = '';
+  renderCorrectTotals() {
+    this.correct.innerHTML = '';
     const runningTotal = document.createElement('p');
-    runningTotal.textContent = `Correct: ${this.totalCorrect} vs Incorrect: ${this.totalWrong}`;
-    this.totals.appendChild(runningTotal);
+    runningTotal.textContent = `Correct: ${this.totalCorrect}`;
+    this.correct.appendChild(runningTotal);
+  }
+
+  renderIncorrectTotals() {
+    this.incorrect.innerHTML = '';
+    const runningTotal = document.createElement('p');
+    runningTotal.textContent =  `Incorrect: ${this.totalWrong}`;
+    this.incorrect.appendChild(runningTotal);
   }
 
   render(name) {

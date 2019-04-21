@@ -28,6 +28,7 @@ class PokeDisplay {
   createImage(imgUrl) {
     const img = document.createElement('img');
     img.src = imgUrl;
+    img.classList.add('poke-image');
     return img;
   }
 
