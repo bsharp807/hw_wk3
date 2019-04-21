@@ -1,13 +1,17 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const PokeFormView {
+class PokeFormView {
 
   constructor() {
     this.element = document.querySelector('#poke-form');
   }
 
-  bindEvents() {
-    this.element.addEventListener()
+  submitPokemon() {
+    this.element.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      const name = evt.target.pokemon.value;
+      SubPub.publish('PokeFormView:PokeName', name);
+    })
   }
 }
 

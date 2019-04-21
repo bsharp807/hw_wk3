@@ -8,8 +8,27 @@ class PokeDisplay {
 
   bindEvents() {
     PubSub.subscribe('Pokemon:one-poke-obj', (evt) => {
-      console.log(evt.detail);
+      const sprite = evt.detail.sprites.front_default;
+      this.render(sprite);
     })
+  }
+
+  render(sprite) {
+    this.clearMons();
+
+    const img = this.createImage(sprite);
+    this.element.appendChild(img);
+
+  }
+
+  clearMons() {
+    this.element.innerHtml = '';
+  }
+  
+  createImage(imgUrl) {
+    const img = document.createElement('img');
+    img.src = imgUrl;
+    return img;
   }
 
 
