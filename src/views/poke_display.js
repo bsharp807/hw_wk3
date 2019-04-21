@@ -22,8 +22,7 @@ class PokeDisplay {
   }
 
   clearMons() {
-    this.element.innerHtml = '';
-    console.log('clear mons running');
+    this.element.innerHTML = '';
   }
 
   createImage(imgUrl) {
