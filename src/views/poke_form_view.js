@@ -10,7 +10,6 @@ class PokeFormView {
   bindEvents() {
     PubSub.subscribe('Pokemon:one-poke-obj', (evt) => {
       this.pokeName = evt.detail.name;
-      console.log(this.pokeName);
     });
   }
 
@@ -21,9 +20,6 @@ class PokeFormView {
       if(evt.target.pokemon.value === this.pokeName) {
         answer = true
       }
-      console.log(evt.target.pokemon.value);
-      console.log(this.pokeName);
-      console.log(answer);
       PubSub.publish('PokeFormView:PokeName', answer);
     })
   }
