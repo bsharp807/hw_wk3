@@ -9,6 +9,30 @@
   </head>
   <body>
     <img class="header" src="./pokemonlogo.png" alt="pokemon">
+    <img class="settings" id="settings" src="./settings.png" alt="settings">
+    <div id="option-select">
+      <form id="overall-settings">
+        <div class="settings-buttons">
+          <label for="gen_i">GEN I</label>
+          <input id="gen_i" type="radio" name="genSetting" value="0" checked></input>
+          <label for="gen_ii">GEN II</label>
+          <input id="gen_ii" type="radio" name="genSetting" value="1"></input>
+          <label for="gen_iii">GEN III</label>
+          <input id="gen_iii" type="radio" name="genSetting" value="2"></input>
+          <label for="gen_iv">GEN IV</label>
+          <input id="gen_iv" type="radio" name="genSetting" value="3"></input>
+          <label for="gen_v">GEN V</label>
+          <input id="gen_v" type="radio" name="genSetting" value="4"></input>
+          <label for="gen_vi">GEN VI</label>
+          <input id="gen_vi" type="radio" name="genSetting" value="5"></input>
+          <label for="gen_vii">GEN VII</label>
+          <input id="gen_vii" type="radio" name="genSetting" value="6"></input>
+        </div>
+        <div class="save-settings">
+          <input type="submit" name="submit" value="Save Settings"></input>
+        </div>
+      </form>
+    </div>
     <form autocomplete="off" id="poke-form">
       <label for="poke-input">Enter Pokemon Name</label>
       <input id="poke-input" type="text" name="pokemon">
